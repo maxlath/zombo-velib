@@ -1,0 +1,60 @@
+	<!-- quel alternative pour le pas mettre station each dans le template ?  -->
+	<% @stations.each do |s| %> 
+		<% @result= JSON.parse call_api(s) %>
+
+		<div class="row">
+			<div class="panel">
+				<div class="dotspace">
+					<% if @result["status"] == "OPEN" && @result["available_bikes"] > @threshold && @result["available_bike_stands"] > @threshold %>
+						 <%= '<div class="dot green-dot"></div>'  %>
+					<% elsif @result["status"] != "OPEN" || @result["available_bikes"] == 0 || @result["available_bike_stands"] == 0 %>
+						<%= '<div class="dot red-dot"></div>'  %>
+					<% else %>
+						<%= '<div class="dot orange-dot"></div>'  %>
+					<% end %>
+				</div>
+				<div>
+					<%= '<h5>'+@result["name"]+'</h5>' %>
+				</div>
+				<div class="raw">
+					<div class="small-6 bike">
+						<img src="/images/bike.png">
+						<%= @result["available_bikes"] %>
+					</div>
+					<div class="small-6 park">
+						<img src="/images/park.png">
+						<%= @result["available_bike_stands"] %>
+					</div>
+				</div>
+				<div class="update-time">
+					<small>
+						last update: 
+						<% @a = Time.now.to_i-@result["last_update"]/1000 %>
+						<% if @a < 60 %>
+							<%= @a.to_s + ' seconds ago' %>
+						<% else %>
+							<%= (@a/60).round.to_s + ' minutes ago' %>
+						<% end %>
+						
+					</small>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+
+<!-- 
+Resultat type de l'API
+
+=> {"number"=>43004,
+ "name"=>"43004 - MONTREUIL (VINCENNES)",
+ "address"=>"43 RUE DE MONTREUIL - 94300 VINCENNES",
+ "position"=>{"lat"=>48.85041836676044, "lng"=>2.43451378622076},
+ "banking"=>true,
+ "bonus"=>false,
+ "status"=>"OPEN",
+ "contract_name"=>"Paris",
+ "bike_stands"=>25,
+ "available_bike_stands"=>13,
+ "available_bikes"=>12,
+ "last_update"=>1384536924000} -->

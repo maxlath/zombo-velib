@@ -1,0 +1,43 @@
+.dot {
+	padding: 5px 5px -10px 5px;
+	/*margin-bottom: 5px;	*/
+	display: inline-block;
+}
+
+.green-dot {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px; 
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, green 100%, red 95%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, green);
+	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, green 100%, red 95%);
+}
+
+.orange-dot {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px; 
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); 
+}
+
+.red-dot {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	/*background-color: red;*/
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, darkred 0%, red 100%, white 90%);
+	/*background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);*/
+	/*background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%); */
+
+}
+
+.dotspace {
+	float: right;
+}
+
+.update-time {
+	float: right;
+	/*margin-bottom: 30px;*/
+}

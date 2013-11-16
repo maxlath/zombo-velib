@@ -2,10 +2,16 @@
 <html>
 <head>
 	<title>Zombo Velib</title>
+	<link rel='stylesheet' href='http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css'>
+	<link rel='stylesheet' href='/css/app.css'>
 </head>
 <body>
-	<h1>Zombo Velib</h1>
-	<%= yield %>
-	<%= "Hello World" %>
+    <div class="row">
+	    <div class="small-6 small-centered columns"><a href="/"><h1>Zombo Velib</h1></a>
+	    	<%= yield %>
+	    </div>
+	</div>
+	
+
 </body>
 </html>
