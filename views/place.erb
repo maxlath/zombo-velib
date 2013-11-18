@@ -1,6 +1,6 @@
 	<!-- quel alternative pour le pas mettre station each dans le template ?  -->
 	<% @stations.each do |s| %> 
-		<% @result= JSON.parse call_api(s) %>
+		<% @result= JSON.parse call_api(s); @last_api_call= Time.now %>
 
 		<div class="row">
 			<div class="panel">
@@ -35,7 +35,13 @@
 						<% else %>
 							<%= (@a/60).round.to_s + ' minutes ago' %>
 						<% end %>
-						
+						 -  last api call:
+						<% @b = Time.now.to_i-@last_api_call.to_i %>
+						<% if @b == 0 %>
+							<%= 'just now' %>
+						<% else %>
+							<%= (@b/60).round.to_s + ' minutes ago' %>
+						<% end %>
 					</small>
 				</div>
 			</div>
